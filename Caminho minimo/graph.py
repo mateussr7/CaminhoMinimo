@@ -26,7 +26,7 @@ class Graph:
             vertex = u[1]
             if distance > dist[vertex]:
                 continue
-            #vertices eliminados voltam a contar nos ciclos secundários
+            
             adjacent: List[Tuple[int, int]] = [(c, n) for c, n in enumerate(self.G[vertex]) if n != 0]
             for v, w in adjacent:
                 if dist[v] > dist[vertex] + w:
