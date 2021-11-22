@@ -1,8 +1,7 @@
 from graph import Graph
-import numpy as np
 
 
-def build_graph(file_name, source, target) -> Graph:
+def build_graph(file_name) -> Graph:
     full_path = "store/" + file_name
     with open(full_path) as file:
         stats = file.readline()
@@ -14,6 +13,5 @@ def build_graph(file_name, source, target) -> Graph:
             s, t, w = values.split()
             graph.add_edge(int(s), int(t), int(w))
 
-        graph_final = np.asarray(graph.G)
         file.close()
         return graph

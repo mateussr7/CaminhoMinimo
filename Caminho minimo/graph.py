@@ -26,7 +26,7 @@ class Graph:
             vertex = u[1]
             if distance > dist[vertex]:
                 continue
-
+            #vertices eliminados voltam a contar nos ciclos secundários
             adjacent: List[Tuple[int, int]] = [(c, n) for c, n in enumerate(self.G[vertex]) if n != 0]
             for v, w in adjacent:
                 if dist[v] > dist[vertex] + w:
@@ -42,6 +42,8 @@ class Graph:
 
         dist[s] = 0
 
+        #definindo conjunto de arestas existentes, com m: source, n: target,
+        # G[m][n]: weight
         edges: List[Tuple[int, int, int]] = []
 
         for m in range(self.vertexes):
@@ -49,7 +51,7 @@ class Graph:
                 if self.G[m][n] != 0:
                     edges.append((m, n, self.G[m][n]))
 
-        for i in range(self.vertexes - 1):
+        for i in range(self.vertexes):
             change = False
             for u, v, w in edges:
                 if dist[v] > dist[u] + w:
