@@ -53,7 +53,7 @@ elif algorithm == '3':
     dist, pred = g.floyd_warshall()
     time_execution.set_finish_time(time.time())
     path = calc_best_path_from_matrix(pred, source, target)
-    cost = calc_cost_from_matrix(dist, path)
+    cost = calc_cost_from_matrix(dist, source, target)
 
 
 rounded_time = round(time_execution.calc_execution_time(), 5)
